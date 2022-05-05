@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:e_pharmacie_platform_app/utils/dimensions.dart';
 import 'package:e_pharmacie_platform_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class IconAndTextWidget extends StatelessWidget {
         Icon(
           icon,
           color: iconColor,
-          size: 24,
+          size: Dimensions.iconSize24,
         ),
         SizedBox(
           width: 5,

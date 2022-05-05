@@ -1,6 +1,7 @@
 
 // ignore_for_file: must_be_immutable
 
+import 'package:e_pharmacie_platform_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,7 +27,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
           fontFamily: 'Roboto',
           color: color,
-          fontSize: size == 0 ?20 : size,
+          fontSize: size == 0 ?Dimensions.font20 : size,
           fontWeight: FontWeight.w400),
     );
   }
