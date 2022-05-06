@@ -1,4 +1,5 @@
-import 'package:e_pharmacie_platform_app/screens/drug/popular_drug_detail.dart';
+
+import 'package:e_pharmacie_platform_app/screens/drug/recent_drug_detail.dart';
 import 'package:e_pharmacie_platform_app/screens/home/main_drug_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: MainDrugScreen(),
-      home: PopularDrugDetail(),
+      //home: PopularDrugDetail(),
+      home: RecentDrugDetail(),
     );
   }
 }
