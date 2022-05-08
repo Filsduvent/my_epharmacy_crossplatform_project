@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:e_pharmacie_platform_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';

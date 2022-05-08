@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1042486442359",
+    "project_id": "medicine-order-platform",
+    "storage_bucket": "medicine-order-platform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042486442359:android:5ceff108b4910cc34f8972",
+        "android_client_info": {
+          "package_name": "com.example.e_pharmacie_platform_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042486442359-ddf2ob0gpnav9sa2hnbpb77deokeho6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh0_1OrTfrBLPU42wDWom0odxC3G8qNsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042486442359-ddf2ob0gpnav9sa2hnbpb77deokeho6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
