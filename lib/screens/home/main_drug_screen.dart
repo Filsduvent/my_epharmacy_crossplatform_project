@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:e_pharmacie_platform_app/screens/home/drug_page_body.dart';
 import 'package:e_pharmacie_platform_app/utils/dimensions.dart';
 import 'package:e_pharmacie_platform_app/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
-
 
 class MainDrugScreen extends StatefulWidget {
   const MainDrugScreen({Key? key}) : super(key: key);
@@ -53,6 +51,9 @@ class _MainDrugScreenState extends State<MainDrugScreen> {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            height: Dimensions.height10,
           ),
 
           //showing the body
