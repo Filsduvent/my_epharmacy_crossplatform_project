@@ -8,6 +8,7 @@ class Drug {
   final String photoUrl;
   final String categories;
   final String description;
+  final int price;
   Drug({
     required this.id,
     required this.title,
@@ -16,18 +17,20 @@ class Drug {
     required this.photoUrl,
     required this.categories,
     required this.description,
+    required this.price,
   });
 
   static Drug fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
     return Drug(
-      id: snapshot['id'].toString(),
+      id: snap.id,
       title: snapshot['title'],
       manifacturingDate: snapshot['manifacturing_date'].toString(),
       expiringDate: snapshot['expiring_date'].toString(),
       photoUrl: snapshot['photo_url'].toString(),
       categories: snapshot['categories'],
       description: snapshot['description'],
+      price: snapshot['price'],
     );
   }
 
@@ -40,6 +43,7 @@ class Drug {
       'photo_url': photoUrl,
       'description': description,
       'categories': categories,
+      'price': price,
     };
   }
 }

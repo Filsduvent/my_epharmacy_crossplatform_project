@@ -3,6 +3,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:e_pharmacie_platform_app/controllers/slide_drug_controller.dart';
 import 'package:e_pharmacie_platform_app/models/drug_model.dart';
+import 'package:e_pharmacie_platform_app/screens/drug/popular_drug_detail.dart';
 import 'package:e_pharmacie_platform_app/utils/colors.dart';
 import 'package:e_pharmacie_platform_app/utils/dimensions.dart';
 import 'package:e_pharmacie_platform_app/widgets/big_text.dart';
@@ -12,12 +13,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/recent_drug_controller.dart';
+import '../../routes/route_helper.dart';
 
 class DrugPageBody extends StatefulWidget {
-  DrugPageBody({Key? key}) : super(key: key);
-  final SlideDrugController slidedrugController =
-      Get.put(SlideDrugController());
-
+ const DrugPageBody({Key? key}) : super(key: key);
+ 
   @override
   State<DrugPageBody> createState() => _DrugPageBodyState();
 }
@@ -127,12 +127,14 @@ class _DrugPageBodyState extends State<DrugPageBody> {
               ? ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: recentdrugController.recentDrugList.length,
                   itemBuilder: (context, index) {
                     final recentdata =
                         recentdrugController.recentDrugList[index];
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RouteHelper.getRecentDrug(index));
+                      },
                       child: Container(
                         margin: EdgeInsets.only(
                             left: Dimensions.width20,
@@ -249,16 +251,21 @@ class _DrugPageBodyState extends State<DrugPageBody> {
       transform: matrix,
       child: Stack(
         children: [
-          Container(
-            height: Dimensions.pageViewContainer,
-            margin: EdgeInsets.only(
-                left: Dimensions.width10, right: Dimensions.width10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-                color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(slideDrugList.photoUrl))),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed(RouteHelper.getPopularDrug(index));
+            },
+            child: Container(
+              height: Dimensions.pageViewContainer,
+              margin: EdgeInsets.only(
+                  left: Dimensions.width10, right: Dimensions.width10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius30),
+                  color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(slideDrugList.photoUrl))),
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
