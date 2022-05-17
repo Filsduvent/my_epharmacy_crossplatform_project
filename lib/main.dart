@@ -30,10 +30,10 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: CartPage(),
-        // home: MainDrugScreen(),
-        // initialRoute: RouteHelper.initial,
-        // getPages: RouteHelper.routes,
+
+        //home: MainDrugScreen(),
+        initialRoute: RouteHelper.getSplashPage(),
+        getPages: RouteHelper.routes,
       );
     });
   }

@@ -10,7 +10,7 @@ class CartController extends GetxController {
 
   Map<String, CartModel> get items => _items;
 
-  void addItem(Drug drug,  int quantity) {
+  void addItem(Drug drug, int quantity) {
     var totalQuantity = 0;
     if (_items.containsKey(drug.id)) {
       _items.update(drug.id, (value) {
@@ -24,6 +24,7 @@ class CartController extends GetxController {
           quantity: value.quantity! + quantity,
           isExist: true,
           time: DateTime.now().toString(),
+          drug: drug,
         );
       });
 
@@ -41,6 +42,7 @@ class CartController extends GetxController {
             quantity: quantity,
             isExist: true,
             time: DateTime.now().toString(),
+            drug: drug,
           );
         });
       } else {
@@ -59,6 +61,7 @@ class CartController extends GetxController {
         );
       }
     }
+    update();
   }
 
   bool existInCart(Drug drug) {
@@ -87,10 +90,19 @@ class CartController extends GetxController {
     });
     return totalQuantity;
   }
-
-   List<CartModel> get getItems {
+ 
+  List<CartModel> get getItems {
     return _items.entries.map((e) {
       return e.value;
     }).toList();
+  }
+
+  int get totalAmount {
+    var total = 0;
+
+    _items.forEach((key, value) {
+      total += value.quantity! * value.price!;
+    });
+    return total;
   }
 }

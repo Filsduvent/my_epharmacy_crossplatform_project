@@ -2,20 +2,22 @@
 
 import 'package:e_pharmacie_platform_app/controllers/cart_controller.dart';
 import 'package:e_pharmacie_platform_app/controllers/slide_drug_controller.dart';
+import 'package:e_pharmacie_platform_app/screens/cart/cart_page.dart';
 import 'package:e_pharmacie_platform_app/screens/home/main_drug_screen.dart';
 import 'package:e_pharmacie_platform_app/utils/dimensions.dart';
 import 'package:e_pharmacie_platform_app/widgets/app_icon.dart';
 import 'package:e_pharmacie_platform_app/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/expandable_text_widget.dart';
 
 class PopularDrugDetail extends StatelessWidget {
   final int pageId;
-  //final String page;
-  const PopularDrugDetail({Key? key, required this.pageId}) : super(key: key);
+  final String page;
+  const PopularDrugDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +57,21 @@ class PopularDrugDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => MainDrugScreen());
+                        if (page == "cartpage") {
+                        Get.toNamed(RouteHelper.getCartPage());
+                      }
+                      else{
+                        Get.toNamed(RouteHelper.getInitial());
+                      }
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios)),
                   GetBuilder<SlideDrugController>(builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        if (controller.totalItems >= 1) {}
-                        // Get.toNamed(RouteHelper.getCartPage());
+                        if (controller.totalItems >= 1) {
+                          Get.toNamed(RouteHelper.getCartPage());
+                        }
+                        
                       },
                       child: Stack(
                         children: [

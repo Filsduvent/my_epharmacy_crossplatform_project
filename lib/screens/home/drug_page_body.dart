@@ -16,8 +16,8 @@ import '../../controllers/recent_drug_controller.dart';
 import '../../routes/route_helper.dart';
 
 class DrugPageBody extends StatefulWidget {
- const DrugPageBody({Key? key}) : super(key: key);
- 
+  const DrugPageBody({Key? key}) : super(key: key);
+
   @override
   State<DrugPageBody> createState() => _DrugPageBodyState();
 }
@@ -133,7 +133,7 @@ class _DrugPageBodyState extends State<DrugPageBody> {
                         recentdrugController.recentDrugList[index];
                     return GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getRecentDrug(index));
+                        Get.toNamed(RouteHelper.getRecentDrug(index,"home"));
                       },
                       child: Container(
                         margin: EdgeInsets.only(
@@ -253,7 +253,7 @@ class _DrugPageBodyState extends State<DrugPageBody> {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed(RouteHelper.getPopularDrug(index));
+              Get.toNamed(RouteHelper.getPopularDrug(index, "home"));
             },
             child: Container(
               height: Dimensions.pageViewContainer,

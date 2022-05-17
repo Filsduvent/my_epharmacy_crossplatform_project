@@ -14,7 +14,8 @@ import '../../widgets/big_text.dart';
 
 class RecentDrugDetail extends StatelessWidget {
   final int pageId;
-  const RecentDrugDetail({Key? key, required this.pageId}) : super(key: key);
+  final String page;
+  const RecentDrugDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,12 @@ class RecentDrugDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(RouteHelper.initial);
+                      if (page == "cartpage") {
+                        Get.toNamed(RouteHelper.getCartPage());
+                      }
+                      else{
+                        Get.toNamed(RouteHelper.getInitial());
+                      }
                     },
                     child: AppIcon(icon: Icons.clear),
                   ),
@@ -45,8 +51,9 @@ class RecentDrugDetail extends StatelessWidget {
                   GetBuilder<SlideDrugController>(builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        if (controller.totalItems >= 1) {}
-                        // Get.toNamed(RouteHelper.getCartPage());
+                        if (controller.totalItems >= 1) {
+                          Get.toNamed(RouteHelper.getCartPage());
+                        }
                       },
                       child: Stack(
                         children: [

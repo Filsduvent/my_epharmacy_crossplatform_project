@@ -44,7 +44,7 @@ class CartModel {
       "quantity": quantity,
       "isExist": isExist,
       "time": time,
-      "product":drug!.toMap()
+      "drug":drug!.toMap()
     };
   }
 }
